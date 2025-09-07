@@ -1,0 +1,78 @@
+.room-list {
+  padding: 20px;
+}
+
+.room-list h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.room-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.room-thumbnail {
+  position: relative;
+  height: 180px;
+  background: linear-gradient(45deg, #333, #666);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.live-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4d4f;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.room-info {
+  padding: 15px;
+}
+
+.room-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.streamer-name {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.room-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #999;
+}
+
+.loading, .no-rooms {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}

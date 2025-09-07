@@ -1,0 +1,56 @@
+.app {
+  text-align: center;
+}
+
+.app-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.app-nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.app-nav button {
+  background: none;
+  border: 1px solid #ffffff80;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.app-nav button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.app-nav span {
+  margin: 0 10px;
+}
+
+.app-main {
+  padding: 20px;
+}
+
+.live-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .live-view {
+    flex-direction: row;
+  }
+}

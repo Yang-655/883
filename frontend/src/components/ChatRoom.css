@@ -1,0 +1,221 @@
+.chat-room {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+.chat-header {
+  padding: 15px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.chat-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-balance {
+  font-size: 14px;
+  color: #666;
+}
+
+.gift-button {
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.gift-button:hover {
+  background: #e0a800;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  background: #f1f3f4;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.message.gift-message {
+  background: #fff3e0;
+  border-left: 3px solid #ff9800;
+}
+
+.username {
+  font-weight: bold;
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.message-content {
+  color: #333;
+}
+
+.chat-input-form {
+  display: flex;
+  padding: 15px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+/* 礼物商店模态框 */
+.gift-shop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.gift-shop-content {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.gift-shop-header {
+  padding: 15px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gift-shop-header h3 {
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gifts-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.gift-selection-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gift-selection-item:hover {
+  background: #e9ecef;
+  transform: translateY(-3px);
+}
+
+.gift-selection-item .gift-icon {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.gift-selection-item .gift-icon img {
+  max-width: 100%;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+.gift-selection-item .gift-placeholder {
+  font-size: 32px;
+}
+
+.gift-selection-item .gift-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+}
+
+.gift-selection-item .gift-price {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.gift-loading {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+}
+
+.chat-input:focus {
+  border-color: #007bff;
+}
+
+.send-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background: #0056b3;
+}

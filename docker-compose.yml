@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # 数据库服务
+  database:
+    image: mysql:8.0
+    container_name: livestream_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: livestream_dev
+      MYSQL_USER: livestream
+      MYSQL_PASSWORD: livestream123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+    
+  # Redis服务
+  redis:
+    image: redis:alpine
+    container_name: livestream_redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    
+  # 后端服务
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: livestream_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=database
+      - DB_USER=livestream
+      - DB_PASSWORD=livestream123
+      - DB_NAME=livestream_dev
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=live_streaming_secret_key_docker
+    depends_on:
+      - database
+      - redis
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    
+  # 前端服务
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: livestream_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    
+  # SRS流媒体服务器
+  srs:
+    image: ossrs/srs:5
+    container_name: livestream_srs
+    ports:
+      - "1935:1935"   # RTMP
+      - "8080:8080"   # HTTP服务器
+      - "1985:1985"   # HTTP API
+      - "8000:8000"   # RTC
+    volumes:
+      - ./srs/conf/live_streaming.conf:/usr/local/srs/conf/srs.conf
+      - srs_data:/usr/local/srs/objs
+    restart: unless-stopped
+
+volumes:
+  db_data:
+  srs_data:

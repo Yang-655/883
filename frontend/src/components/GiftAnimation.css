@@ -1,0 +1,156 @@
+.gift-animations-container {
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  z-index: 1000;
+  width: 300px;
+  pointer-events: none;
+}
+
+.gift-animation {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  margin-bottom: 15px;
+  transform: translateX(100%);
+  animation: slideIn 0.5s forwards, slideOut 0.5s 4.5s forwards;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.gift-content {
+  display: flex;
+  align-items: center;
+}
+
+.gift-icon {
+  font-size: 32px;
+  margin-right: 15px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gift-info {
+  flex: 1;
+}
+
+.username {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+}
+
+.action {
+  color: #666;
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+.gift-name {
+  font-weight: bold;
+  color: #ff6b35;
+  font-size: 16px;
+}
+
+/* 不同类型礼物的特殊样式 */
+.gift-animation.flower {
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+  border-left: 4px solid #ff69b4;
+}
+
+.gift-animation.beer {
+  background: linear-gradient(135deg, #fff8dc, #fdf5e6);
+  border-left: 4px solid #ffd700;
+}
+
+.gift-animation.rocket {
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  border-left: 4px solid #00bcd4;
+  animation: rocketLaunch 5s forwards;
+}
+
+@keyframes rocketLaunch {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-20px) translateY(-20px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(300px) translateY(-200px) rotate(-15deg);
+  }
+}
+
+.gift-animation.car {
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  border-left: 4px solid #9c27b0;
+}
+
+.gift-animation.yacht {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-left: 4px solid #2196f3;
+}
+
+.emoji-icon {
+  display: inline-block;
+  animation: emojiPulse 1s infinite;
+}
+
+@keyframes emojiPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .gift-animations-container {
+    width: 250px;
+    top: 15%;
+    right: 10px;
+  }
+  
+  .gift-animation {
+    padding: 12px;
+  }
+  
+  .gift-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .username {
+    font-size: 12px;
+  }
+  
+  .gift-name {
+    font-size: 14px;
+  }
+}
